@@ -294,6 +294,11 @@ class Runtime extends Encoder
         return str_replace(array('=', '`', '&#039;'), array('&#x3D;', '&#x60;', '&#x27;'), htmlspecialchars(static::raw($cx, $var), ENT_QUOTES, 'UTF-8'));
     }
 
+   	public static function enczero($cx, $var) {
+		if( empty( $var)) return "0";
+		return self::encq( $cx, $var );
+	}
+
     /**
      * For {{#var}} or {{#each}} .
      *
