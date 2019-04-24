@@ -168,7 +168,8 @@ class Context extends Flags
             'cnd_nend' => ')',
         );
 
-        $context['ops']['enc'] = $context['flags']['hbesc'] ? 'encq' : 'enc';
+	    if( isset( $options['enc'])) $context['ops']['enc'] = $options['enc'];
+        else $context['ops']['enc'] = $context['flags']['hbesc'] ? 'encq' : 'enc';
         $context['ops']['array_check'] = '$inary=is_array($in);';
         static::updateHelperTable($context, $options);
 
